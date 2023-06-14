@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1704.5
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestmentApp.API", "InvestmentApp.API.csproj", "{4276347E-61C0-4EC1-871F-649DF061C37D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4276347E-61C0-4EC1-871F-649DF061C37D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4276347E-61C0-4EC1-871F-649DF061C37D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4276347E-61C0-4EC1-871F-649DF061C37D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4276347E-61C0-4EC1-871F-649DF061C37D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {33933D97-6AA0-432B-B371-6C2CF06FC382}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,13 @@
+@import '../../../styles.scss';
+
+.sidenav-container {
+    min-height: 100%;
+}
+
+.mat-drawer {
+    background-color: $custom-primary-darker;
+}
+
+button {
+    min-width: 200px;
+}

@@ -1,0 +1,6 @@
+<app-sidenav [isOpen]="isOpen" (isOpenChange)="isOpen = $event" (toggleSidenav)="isOpen = !isOpen">
+    <app-navbar (toggleSidenav)="isOpen = !isOpen"></app-navbar>
+    <div class="flex justify-center w-full">
+        <router-outlet></router-outlet>
+    </div>
+</app-sidenav>

@@ -1,0 +1,82 @@
+<div class="mat-elevation-z8 cstm-container w-10/12 mt-12 p-3">
+  <div class="flex justify-between pl-4 pr-4 mb-2">
+    <div class="flex gap-5">
+      <h1>List of Crypto Coins</h1>
+    </div>
+    <button mat-flat-button color="accent" class="p-3" (click)="openDialog('addcoin', null)">
+      <mat-icon>add</mat-icon> Add a new coin
+    </button>
+  </div>
+   <!-- Coin table -->
+<table mat-table 
+      [dataSource]="coins"
+      matSort
+      class="bg-transparent w-auto"
+      matSortActive="rank"
+      matSortDirection="asc">
+
+    <!-- Rank column -->
+    <ng-container matColumnDef="rank">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>#</mat-header-cell>
+      <mat-cell *matCellDef="let coin" data-cell="No."> {{ coin.rank }} </mat-cell> 
+    </ng-container>
+  
+    <!-- Name column -->
+    <ng-container matColumnDef="code">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Coin</mat-header-cell>
+      <mat-cell *matCellDef="let coin" data-cell="Coin">
+        <div class="flex gap-2 items-center">
+          <picture>
+            <img src="{{ coin.png64 }}" alt="">
+          </picture>
+          <div>
+            <div class="filter-item-name mb0 text-left"> {{ coin.code }} </div>
+            <small class="abr text-truncate text-gray-500">{{ coin.name}}</small>
+          </div>
+        </div>
+      </mat-cell>
+    </ng-container>
+  
+    <!-- Price column -->
+    <ng-container matColumnDef="rate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+      <mat-cell *matCellDef="let coin" data-cell="Price">${{ coin.rate | number:'1.0-4'}}</mat-cell>
+    </ng-container>
+
+    <!-- Market cap column -->
+    <ng-container matColumnDef="cap">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Market Cap</mat-header-cell>
+      <mat-cell *matCellDef="let coin" data-cell="Market Cap">${{ coin.cap}}</mat-cell>
+    </ng-container>
+
+    <!-- Age column -->
+    <ng-container matColumnDef="volume">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Volume 24H</mat-header-cell>
+      <mat-cell *matCellDef="let coin" data-cell="Volume 24H">${{ coin.volume }}</mat-cell>
+    </ng-container>
+  
+    <!-- All-time high USD column -->
+    <ng-container matColumnDef="allTimeHighUSD">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>All-time High</mat-header-cell>
+      <mat-cell *matCellDef="let coin" data-cell="All-time High">${{ coin.allTimeHighUSD | number:'1.0-4'}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Action</mat-header-cell>
+      <mat-cell *matCellDef="let coin" data-cell="Action">
+        <button mat-flat-button color="accent" class="p-3" (click)="openDialog('editcoin', coin)">
+          <mat-icon>edit</mat-icon> Edit
+        </button>
+      </mat-cell>
+    </ng-container>
+  
+    <!-- Table rows -->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let coin; columns: displayedColumns;"></mat-row>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[10, 25, 50]"
+        showFirstLastButtons
+        aria-label="Select page of coins" class="bg-transparent">
+    </mat-paginator>
+  </div>

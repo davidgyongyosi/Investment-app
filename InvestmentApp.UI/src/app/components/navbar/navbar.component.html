@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+    <button mat-button class="small-btn" (click)="toggleSidenav.emit()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="ml-2 text-lg font-bold hidden sm:block">InvestmentApp</span>
+    <div class="flex-grow"></div>
+    <div class="flex items-center gap-1">
+      <ng-container *ngIf="!loggedIn">
+        <button mat-flat-button (click)="openDialog('login')" color="primary">
+          Login
+        </button>
+        <button mat-flat-button color="accent" (click)="openDialog('register')" class="p-3">
+          Register
+        </button>
+      </ng-container>
+      <ng-container *ngIf="loggedIn">
+        <button mat-button (click)="profileNavigate()">
+          <mat-icon>account_box</mat-icon>
+          <span class="ml-2">Hello, {{ user.userName }}</span>
+        </button>
+        <button mat-button class="small-btn" (click)="logout()">
+          <mat-icon>exit_to_app</mat-icon>
+        </button>
+      </ng-container>
+    </div>
+</mat-toolbar>
+  

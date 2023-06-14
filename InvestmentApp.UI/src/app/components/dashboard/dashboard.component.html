@@ -1,0 +1,116 @@
+<div class="cstm-container w-full h-full flex justify-center flex-col">
+  <div class="h-32">
+    <div class="carousel flex gap-2 items-center justify-between w-full p-3">
+      <div class="cards">
+        <div class="card shadow-inner" *ngFor="let coin of coins">
+          <div class="card-title">
+            <img src="{{ coin.png64 }}" alt="">
+            <div>
+              <h3 class=""> {{ coin.code }} </h3>
+              <small class="">{{ coin.name}}</small>
+            </div>
+          </div>
+          <div class="card-info">
+            <div>
+              ${{ coin.rate | number:'1.0-4'}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="w-full flex justify-center">
+    <div class="w-11/12 portfolio-info rounded-lg m-3">
+      <div class="flex flex-col w-full h-full gap-3 p-3">
+        <div class="flex justify-between pl-4 pr-4 mb-2">
+          <div class="flex gap-5">
+            <h1>Your balance:</h1>
+          <p>${{userbalance | number:'1.0-5'}}</p>
+          </div>
+          <button mat-flat-button color="accent" class="p-3" (click)="openDialog('addusercoin', null)">
+            <mat-icon>add</mat-icon> Add a coin
+          </button>
+        </div>
+        <div class="holdings-table overflow-auto w-full pb-4">
+          <table mat-table 
+          [dataSource]="coinstable"
+          matSort
+          class="bg-transparent w-auto"
+          matSortActive="rank"
+          matSortDirection="asc">
+  
+          <ng-container matColumnDef="rank">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>#</mat-header-cell>
+            <mat-cell *matCellDef="let coin" data-cell="No."> {{ coin.coin.rank }} </mat-cell> 
+          </ng-container>
+          
+            <ng-container matColumnDef="code">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Coin</mat-header-cell>
+              <mat-cell *matCellDef="let coin" data-cell="Coin">
+                <div class="flex gap-2 items-center">
+                  <picture>
+                    <img src="{{ coin.coin.png64 }}" alt="">
+                  </picture>
+                  <div>
+                    <div class="filter-item-name mb0 text-left"> {{ coin.coin.code }} </div>
+                    <small class="abr text-truncate text-gray-500">{{ coin.coin.name}}</small>
+                  </div>
+                </div>
+              </mat-cell>
+            </ng-container>
+          
+            <ng-container matColumnDef="rate">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+              <mat-cell *matCellDef="let coin" data-cell="Price">${{ coin.coin.rate | number:'1.0-7'}}</mat-cell>
+            </ng-container>
+  
+            <ng-container matColumnDef="quantity">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Quaintity</mat-header-cell>
+              <mat-cell *matCellDef="let coin" data-cell="Quaintity">{{coin.coinCount}}</mat-cell>
+            </ng-container>
+  
+            <ng-container matColumnDef="value">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Value</mat-header-cell>
+              <mat-cell *matCellDef="let coin" data-cell="Value">${{ coin.coinCount * coin.coin.rate | number:'1.0-2' }}</mat-cell>
+            </ng-container>
+          
+            <ng-container matColumnDef="share">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Share</mat-header-cell>
+              <mat-cell *matCellDef="let coin" data-cell="Share">
+                <!--<div class="w-4/5 bg-gray-200 rounded-full dark:bg-gray-700">
+                  <div class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" 
+                  [ngStyle]="getStyle((coin.coinCount * coin.coin.rate / userbalance) * 100)"></div>
+                </div>
+                <p>{{(coin.coinCount * coin.coin.rate / userbalance) * 100 | number:'1.0-1'}}%</p>-->
+                <div class="flex flex-col w-full justify-center text-center gap-2 items-center">
+                  <div class="text-xs font-medium dark:text-white">
+                    {{(coin.coinCount * coin.coin.rate / userbalance) * 100 | number:'1.0-0'}}%
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                    <div class="bg-slate-500 h-2.5 rounded-full dark:bg-slate-400"
+                    [ngStyle]="getStyle((coin.coinCount * coin.coin.rate / userbalance) * 100)"></div>
+                  </div>
+                </div>
+              </mat-cell>
+            </ng-container>
+  
+            <ng-container matColumnDef="edit">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>Action</mat-header-cell>
+              <mat-cell *matCellDef="let coin" data-cell="Action">
+                <button mat-flat-button color="accent" class="p-3" (click)="openDialog('editusercoin', coin)">
+                  <mat-icon>edit</mat-icon> Edit
+                </button>
+              </mat-cell>
+            </ng-container>
+          
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let coin; columns: displayedColumns;"></mat-row>
+          </table>
+        </div>
+        <div class="w-full h-96">
+          <app-treemap [treemapData]="treemapData"></app-treemap>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

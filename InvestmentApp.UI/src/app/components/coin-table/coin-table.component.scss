@@ -1,0 +1,89 @@
+@import '../../../styles.scss';
+
+.cstm-container {
+    background-color: $custom-primary-fix;
+    overflow-x: auto;
+}
+
+picture {
+    width: 35px;
+    height: 35px;
+}
+
+.mat-column-rank {
+  max-width: 80px;
+}
+
+.mat-column-rate,
+.mat-column-cap,
+.mat-column-volume,
+.mat-column-allTimeHighUSD,
+.mat-column-edit {
+    max-width: 120px;
+    padding: 0;
+}
+
+
+@media screen and (max-width: 640px) {
+    .mat-mdc-table {
+      border: 0;
+      vertical-align: middle;
+      height: auto;
+
+      
+      .mat-mdc-row {
+        border-bottom: 1px solid gray;
+        display: block;
+        margin-bottom: 0.6rem;
+
+        .mat-mdc-cell {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            //border: none;
+            max-width: 100%;
+            padding: 1rem;
+        }
+
+        .mat-mdc-cell::before {
+            content: attr(data-cell) ": ";
+            float: left;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding-right: 10px;
+        }
+
+        .mat-mdc-cell > div {
+            flex-direction: row-reverse;
+
+            div {
+                text-align: right;
+            }
+        }
+      }
+
+      .mat-mdc-header-row {
+        display: none;
+      }
+
+      .mdc-data-table__row {
+        height: auto;
+      }
+
+      .mat-column-rank,
+      .mat-column-code,
+      .mat-column-rate,
+      .mat-column-cap,
+      .mat-column-volume,
+      .mat-column-allTimeHighUSD,
+      .mat-column-edit {
+        max-width: auto;
+        padding: 0;
+      }
+
+      .mat-mdc-cell:first-child, .mat-mdc-header-cell:first-child {
+        max-width: auto;
+      }
+
+    }
+}

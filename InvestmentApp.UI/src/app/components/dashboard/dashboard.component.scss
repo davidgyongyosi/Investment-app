@@ -1,0 +1,137 @@
+@import '../../../styles.scss';
+
+.portfolio-info{
+    background-color: $custom-primary-fix;
+}
+
+.cards {
+    display: flex;
+    gap: 1rem;
+    overflow: auto;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .card {
+        min-width: 200px;
+        height: 100px;
+        background-color: $custom-primary-fix;
+        border-radius: 10px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    
+        .card-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            line-height: 16px;
+    
+            img {
+                width: 35px;
+                height: 35px;
+            }
+    
+            small {
+                color: gray;
+            }
+        }
+        
+        .card-info {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    
+    .card:hover {
+        background-color: $custom-primary-lighter;
+    }
+}
+
+picture {
+    width: 35px;
+    height: 35px;
+}
+
+.mat-column-rank {
+    max-width: 80px;
+}
+
+.mat-column-rate,
+.mat-column-quantity,
+.mat-column-value,
+.mat-column-share,
+.mat-column-edit {
+    max-width: 120px;
+    //padding: 0;
+    
+}
+
+@media screen and (max-width: 640px) {
+    .mat-mdc-table {
+      border: 0;
+      vertical-align: middle;
+      height: auto;
+
+      
+      .mat-mdc-row {
+        border-bottom: 1px solid gray;
+        display: block;
+        margin-bottom: 0.6rem;
+
+        .mat-mdc-cell {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            //border: none;
+            max-width: 100%;
+            padding: 1rem;
+        }
+
+        .mat-mdc-cell::before {
+            content: attr(data-cell) ": ";
+            float: left;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding-right: 10px;
+        }
+
+        .mat-mdc-cell > div {
+            flex-direction: row-reverse;
+
+            div {
+                text-align: right;
+            }
+        }
+      }
+
+      .mat-mdc-header-row {
+        display: none;
+      }
+
+      .mdc-data-table__row {
+        height: auto;
+      }
+
+      .mat-column-rank,
+      .mat-column-code,
+      .mat-column-rate,
+      .mat-column-cap,
+      .mat-column-volume,
+      .mat-column-allTimeHighUSD {
+        max-width: auto;
+        padding: 0;
+      }
+
+      .mat-mdc-cell:first-child, .mat-mdc-header-cell:first-child {
+        max-width: auto;
+      }
+
+    }
+}

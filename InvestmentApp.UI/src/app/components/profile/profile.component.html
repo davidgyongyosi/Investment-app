@@ -1,0 +1,83 @@
+<div class="mat-elevation-z8 cstm-container w-auto mt-12 p-3">
+    <div class="w-96 flex flex-col items-center">
+      <div class="w-full text-center p-10">
+        <img *ngIf="user.picture == '' " src="" alt="" width="200px">
+        <mat-icon *ngIf="user.picture != '' " class="w-12 aspect-square" id="prof-placeholder">insert_emoticon</mat-icon>
+      </div>
+      <div class="flex justify-between p-3 user-info w-full">
+        <span>Firstname:</span>
+        <div>
+          <span class="mr-4" *ngIf="!isEditing">{{user.firstName}}</span>
+          <mat-form-field *ngIf="isEditing" class="mr-4">
+            <input matInput [(ngModel)]="user.firstName">
+          </mat-form-field>
+          <button mat-flat-button color="warn" class="p-3" (click)="toggleEdit()">
+            <mat-icon>edit</mat-icon>
+            {{ isEditing ? 'Cancel' : 'Edit' }}
+          </button>
+          <button mat-flat-button color="primary" class="p-3" *ngIf="isEditing" (click)="saveChanges()">
+            <mat-icon>save</mat-icon>
+            Save
+          </button>
+        </div>
+      </div>
+      <div class="flex justify-between p-3 user-info w-full">
+        <span>Lastname:</span>
+        <div>
+          <span class="mr-4" *ngIf="!isEditing">{{user.lastName}}</span>
+          <mat-form-field *ngIf="isEditing" class="mr-4">
+            <input matInput [(ngModel)]="user.lastName">
+          </mat-form-field>
+          <button mat-flat-button color="warn" class="p-3" (click)="toggleEdit()">
+            <mat-icon>edit</mat-icon>
+            {{ isEditing ? 'Cancel' : 'Edit' }}
+          </button>
+          <button mat-flat-button color="primary" class="p-3" *ngIf="isEditing" (click)="saveChanges()">
+            <mat-icon>save</mat-icon>
+            Save
+          </button>
+        </div>
+      </div>
+      <div class="flex justify-between p-3 user-info w-full">
+        <span>Email:</span>
+        <div>
+          <span class="mr-4" *ngIf="!isEditing">{{user.email}}</span>
+          <mat-form-field *ngIf="isEditing" class="mr-4">
+            <input matInput [(ngModel)]="user.email">
+          </mat-form-field>
+          <button mat-flat-button color="warn" class="p-3" (click)="toggleEdit()">
+            <mat-icon>edit</mat-icon>
+            {{ isEditing ? 'Cancel' : 'Edit' }}
+          </button>
+          <button mat-flat-button color="primary" class="p-3" *ngIf="isEditing" (click)="saveChanges()">
+            <mat-icon>save</mat-icon>
+            Save
+          </button>
+        </div>
+      </div>
+      <div class="flex justify-between p-3 user-info w-full">
+        <span>Username:</span>
+        <div>
+          <span class="mr-4" *ngIf="!isEditing">{{user.userName}}</span>
+          <mat-form-field *ngIf="isEditing" class="mr-4">
+            <input matInput [(ngModel)]="user.userName">
+          </mat-form-field>
+          <button mat-flat-button color="warn" class="p-3" (click)="toggleEdit()">
+            <mat-icon>edit</mat-icon>
+            {{ isEditing ? 'Cancel' : 'Edit' }}
+          </button>
+          <button mat-flat-button color="primary" class="p-3" *ngIf="isEditing" (click)="saveChanges()">
+            <mat-icon>save</mat-icon>
+            Save
+          </button>
+        </div>
+      </div>
+      <div class="text-center w-full mt-9">
+        <button mat-flat-button color="warn" class="p-3" (click)="deleteAccount()">
+          <mat-icon>delete_forever</mat-icon>
+          Delete Account
+        </button>
+      </div>
+    </div>
+  </div>
+  
