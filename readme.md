@@ -1,28 +1,28 @@
-### Specifikáció
+### Specification
 
-#### Rövid leírás a programról
+#### Brief description of the program
 
-- Ezt az adatvizualizációs alkalmazást úgy terveztem, hogy valós idejű információkat jelenítsen meg a 100 legnépszerűbb kriptovalutáról. Az alkalmazás az Angular 15-re épül, Angular Materials és Tailwind CSS használatával a frontendhez, miközben az Asp.Net API háttérrendszerrel kommunikál. A LiveCoinWatch API az adatok összegyűjtésére szolgál, és táblázatos formában jelenik meg, amely tartalmazza az egyes kriptovaluták fő adatait. Ez lehetővé teszi a felhasználók számára, hogy könnyen nyomon kövessék befektetéseik teljesítményét, és megalapozott döntéseket hozzanak. Ezenkívül az alkalmazás lehetővé teszi a felhasználók számára, hogy kiszámítsák a nem kriptopénzes pénztárcában tárolt kriptovalutájuk értékét. Az adminisztrátorok hozzáférhetnek a felhasználói fiókok és azok adatai kezeléséhez.
-
-<br>
-<br>
-
-- Funkciók, végpontok
-  - Coin végpont, amivel az adminisztrátorok tudják kezelni egyes kriptovaluták adatait az adatbázisban, valamint a felhasználók hasonlóan lássák az adatokat, viszont ne tudják szerkeszteni.
-  - Auth végpont, ami a felhasználó autentikációjáért felel, ezzel tud a felhasználó belépni, regisztrálni, adatait módosítani, valamint a fiókját törölni.
+- I designed this data visualization app to display real-time information about the top 100 cryptocurrencies. The app is built on Angular 15, using Angular Materials and Tailwind CSS for the frontend, while communicating with the Asp.Net API backend. The LiveCoinWatch API is used to collect the data and it is presented in a tabular form that contains the main data of each cryptocurrency. This allows users to easily track the performance of their investments and make informed decisions. Additionally, the app allows users to calculate the value of their cryptocurrency stored in a non-crypto wallet. Administrators have access to manage user accounts and their data.
 
 <br>
 <br>
 
-- Technológiák és keretrendszerek:
-  - Angular 15
-   - Angular Materials
-   - Tailwind CSS
+- Functions, endpoints
+ - Coin endpoint, with which administrators can manage the data of certain cryptocurrencies in the database, and users can see the data in a similar way, but cannot edit it.
+ - Auth endpoint, which is responsible for the authentication of the user, with which the user can log in, register, change their data, and delete their account.
 
 <br>
 <br>
 
-#### Design tervezet pár képben
+- Technologies and frameworks:
+ - Angular 15
+ - Angular Materials
+ - Tailwind CSS
+
+<br>
+<br>
+
+#### Design draft in a few pictures
 
 Main Page
 <br>
